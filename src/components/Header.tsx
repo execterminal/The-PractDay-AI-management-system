@@ -1,5 +1,6 @@
-import { Button } from "./Button";
+import { Button } from "./ui/Button";
 import { FiUser } from "react-icons/fi";
+
 
 export function Header() {
   return (

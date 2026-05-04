@@ -10,20 +10,21 @@ i18n
   .use(initReactI18next)
   .use(ChainedBackend)
   .init({
-    fallbackLng: "kk",
+    fallbackLng: "ru",
     supportedLngs: ["kk", "ru"],
     defaultNS: "translation",
     interpolation: { escapeValue: false },
+    debug: true,
     backend: {
       backends: [
         HttpBackend,
         resourcesToBackend(
-          (language: string) => import(`./locales/${language}.json`),
+          (language: string) => import(`/public/locales/${language}.json`),
         ),
       ],
       backendOptions: [
         {
-          loadPath: "http://localhost:5173/locales/{{lng}}.json",
+          loadPath: "/locales/{{lng}}.json",
         },
       ],
     },
