@@ -10,7 +10,7 @@ i18n
   .use(initReactI18next)
   .use(ChainedBackend)
   .init({
-    fallbackLng: "ru",
+    fallbackLng: "kk",
     supportedLngs: ["kk", "ru"],
     defaultNS: "translation",
     interpolation: { escapeValue: false },

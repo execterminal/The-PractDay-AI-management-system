@@ -1,11 +1,13 @@
-import Signup from "./pages/Signup";
+// import Signup from "./pages/Signup";
 // import Welcome from "./pages/Welcome";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <>
       {/* <Welcome /> */}
-      <Signup />
+      {/* <Signup /> */}
+      <Home />
     </>
   );
 }

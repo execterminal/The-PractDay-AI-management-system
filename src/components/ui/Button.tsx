@@ -8,15 +8,19 @@ type ButtonVariant =
   | "secondary"
   | "ghost"
   | "link";
-type ButtonSize = "default" | "sm" | "lg" | "icon";
+type ButtonSize = "default" | "sm" | "lg" | "icon" | "element";
+type ButtonMargin = "default" | "element";
 
-const getButtonClasses = (variant: ButtonVariant, size: ButtonSize): string => {
+const getButtonClasses = (
+  variant: ButtonVariant,
+  size: ButtonSize,
+  margin: ButtonMargin,
+): string => {
   const baseClasses =
     "ginline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
 
   const variantClasses = {
-    default:
-      "bg-accent text-accent-foreground hover:bg-accent-secondary",
+    default: "bg-accent text-accent-foreground hover:bg-accent-secondary",
     destructive: "bg-accent-error text-text-inverse hover:bg-accent-error/90",
     outline:
       "border border-border-primary bg-background-primary hover:bg-background-hover hover:text-text-primary",
@@ -31,9 +35,15 @@ const getButtonClasses = (variant: ButtonVariant, size: ButtonSize): string => {
     sm: "h-9 rounded-md px-3",
     lg: "h-11 rounded-md px-8",
     icon: "h-10 w-10",
+    element: "h-40 w-40",
   };
 
-  return `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]}`;
+  const marginClasses = {
+    default: "m-0",
+    element: "m-15",
+  };
+
+  return `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${marginClasses[margin]}`;
 };
 
 export interface ButtonProps extends Omit<
@@ -42,6 +52,7 @@ export interface ButtonProps extends Omit<
 > {
   variant?: ButtonVariant;
   size?: ButtonSize;
+  margin?: ButtonMargin;
   loading?: boolean;
   asChild?: boolean;
 }
@@ -52,6 +63,7 @@ const Button = React.forwardRef<HTMLElement, ButtonProps>(
       className,
       variant = "default",
       size = "default",
+      margin = "default",
       loading,
       children,
       disabled,
@@ -60,7 +72,7 @@ const Button = React.forwardRef<HTMLElement, ButtonProps>(
     },
     ref,
   ) => {
-    const classes = [getButtonClasses(variant, size), className]
+    const classes = [getButtonClasses(variant, size, margin), className]
       .filter(Boolean)
       .join(" ");
 
