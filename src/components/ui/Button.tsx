@@ -17,7 +17,7 @@ const getButtonClasses = (
   margin: ButtonMargin,
 ): string => {
   const baseClasses =
-    "ginline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
+    "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
 
   const variantClasses = {
     default: "bg-accent text-accent-foreground hover:bg-accent-secondary",
@@ -40,7 +40,7 @@ const getButtonClasses = (
 
   const marginClasses = {
     default: "m-0",
-    element: "m-15",
+    element: "m-10",
   };
 
   return `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${marginClasses[margin]}`;
