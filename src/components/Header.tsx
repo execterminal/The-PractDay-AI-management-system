@@ -1,7 +1,9 @@
 import { Button } from "./ui/Button";
 import { FiUser } from "react-icons/fi";
+// import { useTranslation } from "react-i18next";
 
 export function Header() {
+  // const { t } = useTranslation();
   return (
     <header className="sticky top-0 w-full bg-secondary backdrop-blur supports-backdrop-fileter:bg-background/60">
       <div className="flex h-12 sm:h-14 items-center justify-between px-3 sm:px-4.5">
@@ -12,7 +14,7 @@ export function Header() {
         </div>
         <div>
           <Button className="w-full gap-2 h-7 ">
-            <FiUser className="" />
+            <FiUser />
           </Button>
         </div>
       </div>
