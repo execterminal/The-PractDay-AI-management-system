@@ -40,34 +40,18 @@ const menuItems = [
     icon: FaLocationCrosshairs,
     label: "home.judgment",
   },
-  {
-    icon: FaLocationCrosshairs,
-    label: "home.judgment",
-  },
-  {
-    icon: FaLocationCrosshairs,
-    label: "home.judgment",
-  },
-  {
-    icon: FaLocationCrosshairs,
-    label: "home.judgment",
-  },
-  {
-    icon: FaLocationCrosshairs,
-    label: "home.judgment",
-  },
 ];
 
 export function MainMenu() {
   const { t } = useTranslation();
 
   return (
-    <div className="fc min-h-screen border border-green-700">
+    <div className="flex min-h-screen items-center justify-center border border-green-700">
       <div className="w-7/8 h-6/8 rounded-2xl border-2 border-border bg-secondary p-10">
         <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
           {menuItems.map(({ icon: Icon, label }) => (
             <Button
-              className="fc h-48 w-full justify-center gap-3"
+              className="flex flex-col items-center justify-center gap-2 p-6"
               size="element"
               margin="element"
             >
